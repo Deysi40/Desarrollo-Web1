@@ -5,23 +5,28 @@ import { IsNotEmpty, IsString, MinLength, IsOptional, IsNumber, Min } from 'clas
 export class ProductoEntity{
 
 @PrimaryGeneratedColumn('uuid') //auogenerador
-  id: string;
+  id: number;
 
   @Column() //obligatorio minimo 3caracterr 
   @IsNotEmpty()
+  @IsString()
   @MinLength(3)
   nombre: string;
 
   @Column({ nullable: true }) //opcional
+  @IsOptional()
+  @IsString()
   descripcion: string;
 
   @Column('decimal')  //obligaotrio mayor que 0
   @IsNotEmpty()
-  @Min(0.01)
+  @IsNumber()
+  @Min(0)
   precio: number;
 
   @Column('int') //obligatorio mayor o igual que 0
   @IsNotEmpty()
+  @IsNumber()
   @Min(0)
   stock: number;
 
