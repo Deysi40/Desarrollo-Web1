@@ -7,7 +7,7 @@ export class ProductoEntity{
 @PrimaryGeneratedColumn('uuid') //auogenerador
   id: number;
 
-  @Column() //obligatorio minimo 3caracterr 
+  @Column() //obligatorio minimo 3caracterr
   @IsNotEmpty()
   @IsString()
   @MinLength(3)
